@@ -28,7 +28,7 @@ jobs:
         # Runs Snyk Code (SAST) analysis and uploads result into GitHub.
         # Use || true to not fail the pipeline
       - name: Snyk Code test
-        run: snyk test --all-projects --json > snyk_results.json # || true
+        run: snyk test --all-projects --json > snyk_results.json || true
 
       - name: Save the json file vulnerability report
         uses: actions/upload-artifact@master
