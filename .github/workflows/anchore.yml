@@ -29,13 +29,12 @@ jobs:
     - name: Check out the code
       uses: actions/checkout@v3
     - name: Build the Docker image
-      run: |
-          docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
+      run: docker build . --file Dockerfile --tag localbuild/testimage:latest
     - name: Run the Anchore Grype scan action
       uses: anchore/scan-action@d5aa5b6cb9414b0c7771438046ff5bcfa2854ed7
       id: scan
       with:
-        image: 'docker.io/my-organization/my-app:${{ github.sha }}'
+        image: "localbuild/testimage:latest"
         fail-build: true
         severity-cutoff: critical
         output-format: json
