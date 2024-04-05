@@ -12,6 +12,7 @@
 name: Grype scan
 
 on:
+  workflow_call:
   push:
     branches: [ "master" ]
 
