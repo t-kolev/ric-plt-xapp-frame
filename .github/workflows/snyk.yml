@@ -1,7 +1,11 @@
 name: Snyk Security
 
 on:
-  push:
+  workflow_call:
+    secrets:
+      SNYK_TOKEN: 
+        required: true
+  push: 
     branches: ["master" ]
 
 permissions:
