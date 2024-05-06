@@ -3,7 +3,7 @@
 ## Introduction
 **xapp-frame** is a simple framework for rapid development of RIC xapps, and supports various services essential for RIC xapps such as RESTful APIs, RMR (RIC Message Routing), logging, performance metrics and database backend services. It also provides configuration interface for reading, watching and populating config-map changes in K8S environment.
 
-## Architecture
+## Architecture 
 
 ![Architecture](assets/xappframe-arch.png)
 
