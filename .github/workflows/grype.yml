@@ -68,5 +68,5 @@ jobs:
             pip install -r requirements.txt
     
         - name: Running the Python Script
-          run: python script.py grype_results.json "Grype.txt"
+          run: python script.py results.json "Grype.txt"
       
