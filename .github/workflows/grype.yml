@@ -49,14 +49,13 @@ jobs:
       needs: Grype-Scan
       runs-on: ubuntu-latest
       steps:
+        - name: Check out the code 
+          uses: actions/checkout@v3
         - name: Download result for job Grype-Scan
           uses: actions/download-artifact@v4
           with:
             name: grype_results
             path: t-kolev/ric-plt-xapp-frame/scan/
-        
-        - name: Check out the code 
-          uses: actions/checkout@v3
         
         - name: setup python
           uses: actions/setup-python@v4
