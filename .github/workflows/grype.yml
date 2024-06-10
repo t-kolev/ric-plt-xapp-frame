@@ -68,5 +68,11 @@ jobs:
             pip install -r requirements.txt
     
         - name: Running the Python Script
-          run: python script.py t-kolev/ric-plt-xapp-frame/scan/results.json "Grype.txt"
-      
+          run: python script.py t-kolev/ric-plt-xapp-frame/scan/results.json "Grype.txt" > results.json 
+        
+
+        - name: Save the json vulnerability report to an artifact
+          uses: actions/upload-artifact@master
+          with:
+            name: results
+            path: results.json 

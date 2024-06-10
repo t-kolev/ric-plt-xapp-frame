@@ -174,7 +174,6 @@ def main():
         data = file.read()
 
     formatted_data = format_sca_tool_data(data, args.tool)
-    pprint.pprint(formatted_data[185])
     print(len(formatted_data))
 
 if __name__ == "__main__":
