@@ -47,5 +47,29 @@ jobs:
         sarif_file: ${{ steps.scan2.outputs.sarif }}  
       
       
+  Data_Analysis:
+    name: Data Analysis
+    needs: Grype-Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download result for job Grype-Scan
+        uses: actions/download-artifact@v4
+        with:
+          name: grype_results.json
       
+      - name: Check out the code 
+        uses: actions/checkout@v3
+      
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' # install the python version needed
+
+      - name: install python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+  
+      - name: Running the Python Script
+        run: python script.py grype_results.json "Grype.txt"
     
