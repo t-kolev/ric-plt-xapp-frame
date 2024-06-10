@@ -74,5 +74,5 @@ jobs:
         - name: Save the json vulnerability report to an artifact
           uses: actions/upload-artifact@master
           with:
-            name: results
+            name: results_data_analysis
             path: results.json 
